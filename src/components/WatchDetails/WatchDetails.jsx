@@ -25,14 +25,14 @@ const WatchDetails = (props) => {
   // const for css styles
   const style = useStyles();
 
+  // from context states
+  const { addToCart, cart } = useContext(AppContext);
+
   // state for product with details
-  const [watchDetail, setWatchDetail] = useState();
+  const [watchDetail, setWatchDetail] = useState(null);
 
   // state for show btn,if is product by or not
   const [show, setShow] = useState(true);
-
-  // from context states
-  const { addToCart, cart } = useContext(AppContext);
 
   // fun for get all details about product
   const detailsOfWatch = (item) => {
@@ -43,7 +43,7 @@ const WatchDetails = (props) => {
 
   // initial get all details about product
   useEffect(() => {
-    detailsOfWatch(props.match.params.id);
+    props.match.params.id && detailsOfWatch(props.match.params.id);
   }, [props.match.params.id]);
 
   //  fun for add to cart product
