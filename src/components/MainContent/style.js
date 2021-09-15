@@ -18,7 +18,6 @@ const useStyles = makeStyles(() => ({
     borderColor: "#f5f5dc",
   },
   text: {
-    fontSize: "6rem",
     color: "#51195c",
     padding: "1rem",
     fontFamily: "'Allison', cursive",

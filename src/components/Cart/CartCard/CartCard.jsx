@@ -15,8 +15,11 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../../../App";
 import useStyles from "./style";
 import { v4 as uuidv4 } from "uuid";
+import useWindowDimensions from "../../dimension";
 
 function CartCard({ cart }) {
+  // for css style if inner width less then 484 px
+  const isDimension = useWindowDimensions();
   // const for css styles
   const classes = useStyles();
 
@@ -56,7 +59,10 @@ function CartCard({ cart }) {
                   title={item.name}
                   className={classes.imgSize}
                 />
-                <Typography className={classes.nameLeft}>
+                <Typography
+                  className={classes.nameLeft}
+                  style={{ fontSize: isDimension ? "0.9rem" : "1rem" }}
+                >
                   {item.name}
                 </Typography>
               </Grid>
@@ -102,6 +108,7 @@ function CartCard({ cart }) {
                 variant="contained"
                 color="secondary"
                 size="small"
+                style={{ padding: isDimension ? "0" : "4px 10px" }}
               >
                 X
               </Button>
@@ -111,14 +118,18 @@ function CartCard({ cart }) {
       <Grid container className={classes.tabeleBtn}>
         <Grid
           item
-          xs={4}
+          xs={isDimension ? 5 : 4}
           sm={4}
           md={4}
           lg={4}
           xl={4}
           className={classes.handleBtn}
         >
-          <Button variant="contained" onClick={() => handleEmptyCart(cart.id)}>
+          <Button
+            variant="contained"
+            style={{ fontSize: isDimension ? "0.8rem" : "1rem" }}
+            onClick={() => handleEmptyCart(cart.id)}
+          >
             Empthy Cart
           </Button>
           <Button
@@ -126,6 +137,7 @@ function CartCard({ cart }) {
             to={"/"}
             variant="contained"
             color="secondary"
+            style={{ fontSize: isDimension ? "0.8rem" : "1rem" }}
           >
             Shop more
           </Button>
@@ -135,11 +147,19 @@ function CartCard({ cart }) {
             <Table aria-label="total">
               <TableBody>
                 {rows.map((row) => (
-                  <TableRow key={row.name}>
+                  <TableRow
+                    key={row.name}
+                    style={{ padding: isDimension ? "9px" : "16px" }}
+                  >
                     <TableCell component="th" scope="row">
                       {row.name}
                     </TableCell>
-                    <TableCell align="right">{row.value}</TableCell>
+                    <TableCell
+                      align="right"
+                      style={{ padding: isDimension ? "9px" : "16px" }}
+                    >
+                      {row.value}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

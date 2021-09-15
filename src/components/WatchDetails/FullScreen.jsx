@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import useWindowDimensions from "../dimension";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -26,13 +27,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "red",
     position: "absolute",
     transform: "rotate(325deg)",
-    top: "33px",
-    left: "-63px",
     textAlign: "center",
   },
 }));
 
 export default function FullScreen({ style, watchDetail }) {
+  // for css style if inner width less then 484 px
+  const isDimension = useWindowDimensions();
+
   // const for css styles
   const classes = useStyles();
 
@@ -52,7 +54,15 @@ export default function FullScreen({ style, watchDetail }) {
   return (
     <div className={classes.center}>
       {watchDetail.inventory.available === 0 && (
-        <div className={classes.soldOut}>Sold Out</div>
+        <div
+          className={classes.soldOut}
+          style={{
+            top: isDimension ? "18px" : "33px",
+            left: isDimension ? "-43px" : "-63px",
+          }}
+        >
+          Sold Out
+        </div>
       )}
       <img
         style={{ cursor: "zoom-in" }}

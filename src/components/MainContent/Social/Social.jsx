@@ -22,14 +22,14 @@ function Social() {
 
   return (
     <Grid container className={classes.con}>
-      <IconButton href="https://material-ui.com/api/svg-icon/">
+      <IconButton href="https://www.google.com/">
         <FacebookIcon
           className={classes.icon}
           color="primary"
           fontSize="large"
         />
       </IconButton>
-      <IconButton href="https://material-ui.com/api/svg-icon/">
+      <IconButton href="https://www.google.com/">
         <InstagramIcon
           className={classes.icon}
           color="error"

@@ -62,7 +62,7 @@ const Products = ({ filtredWatches }) => {
             />
           ) : (
             filtredWatches.slice(0, showProducts).map((item) => (
-              <Grid key={uuidv4()} item xs={10} sm={5} md={3} lg={3}>
+              <Grid key={uuidv4()} item xs={10} sm={5} md={4} lg={3} xl={3}>
                 <Product item={item} />
               </Grid>
             ))

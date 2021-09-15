@@ -20,8 +20,12 @@ import commerce from "../../lib/commerce";
 import Description from "./Description";
 import FullScreen from "./FullScreen";
 import useStyles from "./style";
+import useWindowDimensions from "../dimension";
 
 const WatchDetails = (props) => {
+  // for css style if inner width less then 484 px
+  const isDimension = useWindowDimensions();
+
   // const for css styles
   const style = useStyles();
 
@@ -85,12 +89,14 @@ const WatchDetails = (props) => {
         className={style.bar_link_con}
       >
         <Typography
-          variant="h6"
+          variant="h2"
+          paragraph
           component={Link}
           to={"/"}
           className={style.bar_link}
+          style={{ fontSize: isDimension ? "3rem" : "4rem" }}
         >
-          {document.title}
+          E-Commerce Web Shop
         </Typography>
       </Grid>
       <Grid item xs={12} sm={12}>
@@ -100,6 +106,7 @@ const WatchDetails = (props) => {
           align="center"
           dangerouslySetInnerHTML={{ __html: watchDetail.categories[0].name }}
           className={style.text}
+          style={{ fontSize: isDimension ? "3rem" : "3.125rem" }}
         />
       </Grid>
       <Grid
@@ -110,6 +117,7 @@ const WatchDetails = (props) => {
         md={5}
         lg={5}
         xl={4}
+        style={{ marginBottom: isDimension ? "1rem" : "5rem" }}
       >
         <FullScreen watchDetail={watchDetail} style={style} />
       </Grid>
@@ -133,6 +141,7 @@ const WatchDetails = (props) => {
             variant="h4"
             component="h2"
             dangerouslySetInnerHTML={{ __html: watchDetail.name }}
+            style={{ fontSize: isDimension ? "1.8rem" : "2.125rem" }}
           />
           <Typography
             className={style.text}
@@ -158,7 +167,7 @@ const WatchDetails = (props) => {
           <Button
             variant="contained"
             color="primary"
-            className={style.btn}
+            style={{ marginRight: isDimension ? "2.5rem" : "4rem" }}
             component={Link}
             to={"/"}
           >

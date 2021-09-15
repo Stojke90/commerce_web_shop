@@ -1,7 +1,10 @@
 import { Grid, Typography } from "@material-ui/core";
 import React from "react";
-
+import useWindowDimensions from "../../dimension";
 function About() {
+  // for css style if inner width less then 484 px
+  const isDimension = useWindowDimensions();
+
   return (
     <Grid item style={{ marginTop: "1rem" }}>
       <Typography
@@ -10,6 +13,7 @@ function About() {
         gutterBottom
         color="textSecondary"
         align="center"
+        style={{ fontSize: isDimension ? "2.5rem" : "3.75rem" }}
       >
         About E-Commerce
       </Typography>

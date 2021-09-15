@@ -4,11 +4,11 @@ import { Zoom } from "react-slideshow-image";
 import { v4 as uuidv4 } from "uuid";
 import images from "../../../assets";
 import { makeStyles } from "@material-ui/core/styles";
+import useWindowDimensions from "../../dimension";
 
 const useStyles = makeStyles(() => ({
   sliderImg: {
     width: "100%",
-    height: "19rem",
     borderRadius: "2rem",
   },
   slider_con: {
@@ -18,6 +18,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Gallery = () => {
+  // for css style if inner width less then 484 px
+  const isDimension = useWindowDimensions();
   // const for css styles
   const classes = useStyles();
 
@@ -39,6 +41,7 @@ const Gallery = () => {
               key={uuidv4()}
               src={item}
               className={classes.sliderImg}
+              style={{ height: isDimension ? "14rem" : "19rem" }}
               alt="slide watch"
             />
           ))}

@@ -12,7 +12,11 @@ import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AppContext } from "../../App.js";
 import useStyles from "./style";
+import useWindowDimensions from "../dimension";
+
 const NavBar = () => {
+  // for css style if inner width less then 484 px
+  const isDimension = useWindowDimensions();
   // const for css styles
   const classes = useStyles();
   // const for location of route
@@ -29,6 +33,7 @@ const NavBar = () => {
             component={Link}
             to={"/"}
             className={classes.title}
+            style={{ fontSize: isDimension ? "1.1rem" : "1.25rem" }}
           >
             <img src="tabImg.png" alt="logo" className={classes.image} />
             E-Commerce Web Shop
@@ -72,7 +77,7 @@ const NavBar = () => {
         </Toolbar>
 
         <Hidden mdUp>
-          <Typography style={{ margin: "auto" }}>
+          <Typography style={{ margin: "1rem auto" }}>
             <a href="#slider" className={classes.links}>
               Slider
             </a>

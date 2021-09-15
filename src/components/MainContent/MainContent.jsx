@@ -5,8 +5,11 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import commerce from "../../lib/commerce";
 import { About, FilterMenu, Footer, Gallery, Products, Social } from "./import";
 import useStyles from "./style";
+import useWindowDimensions from "../dimension";
 
 const MainContent = () => {
+  // for css style if inner width less then 484 px
+  const isDimension = useWindowDimensions();
   // const for css styles
   const classes = useStyles();
   // state for all product from server
@@ -92,7 +95,10 @@ const MainContent = () => {
             className={classes.text_con}
             id="products"
           >
-            <Typography className={classes.text}>
+            <Typography
+              className={classes.text}
+              style={{ fontSize: isDimension ? "4.5rem" : "6rem" }}
+            >
               It's up to you to choose
             </Typography>
           </Grid>

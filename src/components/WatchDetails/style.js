@@ -13,7 +13,6 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: "5rem",
     border: "ridge",
     position: "relative",
     overflow: "hidden",
@@ -24,9 +23,6 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     flexDirection: "column",
     marginBottom: "5rem",
-  },
-  btn: {
-    marginRight: "4rem",
   },
   text: {
     marginBottom: "1.5rem",
@@ -48,7 +44,6 @@ const useStyles = makeStyles({
     alignItems: "center",
     textDecoration: "none",
     fontFamily: "'Allison', cursive",
-    fontSize: "4rem",
   },
   bar_link_con: {
     display: "flex",
