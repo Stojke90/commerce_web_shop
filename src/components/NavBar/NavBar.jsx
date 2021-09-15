@@ -31,7 +31,7 @@ const NavBar = () => {
             className={classes.title}
           >
             <img src="tabImg.png" alt="logo" className={classes.image} />
-            Jbt radi
+            E-Commerce Web Shop
           </Typography>
           <Hidden smDown>
             <Typography style={{ marginRight: "3rem" }}>
