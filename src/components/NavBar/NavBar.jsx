@@ -40,7 +40,11 @@ const NavBar = () => {
           </Typography>
           <Hidden smDown>
             <Typography style={{ marginRight: "3rem" }}>
-              <a href="#root" className={classes.links}>
+              <a
+                href="#root"
+                onClick={() => window.scrollTo(0, 0)}
+                className={classes.links}
+              >
                 Slider
               </a>
               <a href="#products" className={classes.links}>
