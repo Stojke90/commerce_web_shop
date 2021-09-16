@@ -13,6 +13,7 @@ import {
   Card,
 } from "@material-ui/core";
 import { AppContext } from "../../../../App";
+import useWindowDimensions from "../../../dimension";
 
 const useStyles = makeStyles({
   root: {
@@ -25,6 +26,15 @@ const useStyles = makeStyles({
     borderBottom: "solid 1px #a9a9a9",
     "&:hover": {
       backgroundSize: "100%",
+    },
+  },
+  mediaSmallMobile: {
+    height: "10rem",
+    backgroundSize: "40%",
+    transition: "1.8s ease-out",
+    borderBottom: "solid 1px #a9a9a9",
+    "&:hover": {
+      backgroundSize: "65%",
     },
   },
   title: {
@@ -48,6 +58,8 @@ const useStyles = makeStyles({
 });
 
 const Product = ({ item }) => {
+  // for css style if inner width less then 484 px
+  const isDimension = useWindowDimensions();
   // const for css styles
   const classes = useStyles();
 
@@ -61,7 +73,7 @@ const Product = ({ item }) => {
           <div className={classes.soldOut}>Sold Out</div>
         )}
         <CardMedia
-          className={classes.media}
+          className={isDimension ? classes.mediaSmallMobile : classes.media}
           image={item.media.source}
           title={item.name}
           alt="text"

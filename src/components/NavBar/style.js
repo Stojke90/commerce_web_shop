@@ -27,6 +27,7 @@ const useStyles = makeStyles(() => ({
     color: "#fff",
     textDecoration: "none",
     marginRight: "0.6rem",
+    scrollBehavior: "smooth",
     "&:hover": {
       color: "#c39c9c",
     },

@@ -41,7 +41,7 @@ const Gallery = () => {
               key={uuidv4()}
               src={item}
               className={classes.sliderImg}
-              style={{ height: isDimension ? "14rem" : "19rem" }}
+              style={{ height: isDimension ? "12rem" : "19rem" }}
               alt="slide watch"
             />
           ))}
