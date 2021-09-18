@@ -97,7 +97,7 @@ const MainContent = () => {
           >
             <Typography
               className={classes.text}
-              style={{ fontSize: isDimension ? "4.5rem" : "6rem" }}
+              style={{ fontSize: isDimension ? "3.6rem" : "6rem" }}
             >
               It's up to you to choose
             </Typography>
